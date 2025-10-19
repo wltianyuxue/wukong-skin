@@ -25,10 +25,6 @@ function addShake() {
     const delta = Math.abs(a.x + a.y + a.z - last);
     if (delta > 25) {          // 灵敏度，可再调大
       nextSkin();
-      if (bgm.muted) {          // 第一次交互再解除静音
-        bgm.muted = false;
-        bgm.play().catch(()=>{});
-      }
       last = a.x + a.y + a.z;
     }
   });
@@ -46,6 +42,7 @@ if (window.DeviceMotionEvent) {
     addShake();
   }
 }
+
 
 
 
