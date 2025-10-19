@@ -1,4 +1,4 @@
-const skins = ['wukong-red.png','wukong-blue.png','wukong-green.png'];
+const skins = ['wukong-red.gif','wukong-blue.gif','wukong-green.gif'];
 let idx = 0;
 const img = document.getElementById('s');
 const bgm = document.getElementById('bgm');
@@ -40,3 +40,4 @@ function addShake(){
     }
   });
 }
+
