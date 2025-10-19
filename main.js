@@ -23,9 +23,13 @@ function addShake() {
   window.addEventListener('devicemotion', e => {
     const a = e.accelerationIncludingGravity;
     const delta = Math.abs(a.x + a.y + a.z - last);
-    if (delta > 20) {          // 灵敏度，可再调大
+    if (delta > 25) {          // 灵敏度，可再调大
       nextSkin();
       last = a.x + a.y + a.z;
+    }
+    if (bgm.muted) {          // 第一次交互再解除静音
+      bgm.muted = false;
+      bgm.play().catch(()=>{});
     }
   });
 }
@@ -42,4 +46,5 @@ if (window.DeviceMotionEvent) {
     addShake();
   }
 }
+
 
