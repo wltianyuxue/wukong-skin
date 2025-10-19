@@ -6,7 +6,8 @@ const bgm = document.getElementById('bgm');
 /* 公共切图 + 首次出声 */
 function nextSkin() {
   idx = (idx + 1) % 3;
-  img.src = skins[idx];
+  // 用时间戳冲掉缓存，保证每次拿到新图
+  img.src = skins[idx] + '?t=' + Date.now();
   if (bgm.muted) {          // 第一次交互再解除静音
     bgm.muted = false;
     bgm.play().catch(()=>{});
@@ -41,3 +42,4 @@ if (window.DeviceMotionEvent) {
     addShake();
   }
 }
+
